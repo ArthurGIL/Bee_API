@@ -1,29 +1,27 @@
-#grid{
-	display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
-  grid-gap: .3125rem 1em;
-}
-
-#box{
-	position:relative;
-	width:12.5rem;
-	height:12.5rem;
-	background-color:#DCDCDC80;
-  border-radius: .625rem;
-	text-align:center;
-	color:#000000;	
-}
-
 #objPos{
 	object-position: center top;
   margin-top: .3125rem;
   width: 3.125rem;
 }
 
-#down {
-  margin-top: .625rem;
-}
-
 #image {
   width: 4.375rem;
+}
+
+#bouton {
+  float: right;
+}
+
+footer { 
+  background: linear-gradient(43deg, #394fb9 0%, #863c81 60%, #ffc355 100%); /*#dbdbdb*/
+  color: white;
+  font-size: 1rem;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  padding: .625rem;
+  box-shadow: .0625rem .125rem .125rem .0625rem #bbb;
+  position: fixed;
+  bottom: 0px;
 }

@@ -10,25 +10,67 @@
     <link rel="stylesheet" href="css/reset.css"/>
 		<link rel="stylesheet" media="screen" href="css/global.css"/>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   </head>
 
   <body>
+    <!--
+    <?php
+      // varibales
+      $luminosite_now = "???";
+      $humidite_now = "???";
+      $temperature_now = "???";
+
+      // etablir connection
+      include 'connection.php';
+            
+        // requette SQL
+        $requete = "SELECT luminosite,`humidite`,`temperature` FROM data WHERE event=(SELECT max(event) FROM data);";
+      $result = $con -> query($requete);
+      
+      //sauvegarder data
+      while ($row = $result->fetch_assoc()){
+        $luminosite_now = $row['luminosite'];
+        $humidite_now = $row['humidite'];
+        $temperature_now = $row['temperature'];
+      }
+
+      // fermer connection
+      $con->close();
+
+      // echo "luminosite_now = ".$luminosite_now."<br>";
+      // echo "humidite_now = ".$humidite_now."<br>";
+      // echo "temperature_now = ".$temperature_now;
+    ?>
+    -->
+
     <header>
-      <div class="container">
+      <div class="container section">
         <div class="wrapper">
           <div class="row justify-content-center">
-            <div class="col-3"><img class="beeAPI" src="picture/logo.png"></div>
-            <div class="col-6"><h2 class="down">Et vos abeilles vont biens</h2></div>
-            <div class="col-3">
+            <div class="col-10"><img class="beeAPI" src="picture/logo.png"></div>
+            <div class="col-auto">
               <div class="section">
-                <img id="image" src="luminosite.png"><br>
+                <img id="image" class="section" src="picture/luminosite.png"><br>
                 <p class="font-weight-normal">Il fait jour</p>
               </div>
             </div>
           </div>
+          <h2 class="down">Et vos abeilles vont biens</h2>
         </div>
       </div>
     </header>
@@ -36,102 +78,45 @@
     <br><br>
 
     <div class="container">
-        <div class="card-deck mb-3 text-center">
-
-          <!-- carte 1 -->
-          <div class="card mb-4 shadow-sm offset-sm-1">
-            <div class="card-header">
-              <div class="container">
-                <div class="row">
-                  <div class="col-10">
-                    <h3 class="my-0 font-weight-normal">Aujourd'hui</h3>
-                  </div>
-                  <div class="col-2">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <div id="grid">
-
-                <div id="box">
-                  <img id="objPos" src="luminosite.png"><br>
-                  <h4 class="my-0 font-weight-normal">Luminosité</h4>
-                  <p class="font-weight-normal">13 lux</p>
-                </div>
-
-                <div id="box">
-                  <img id="objPos" src="temperature.png"><br>
-                  <h4 class="my-0 font-weight-normal">Température</h4>
-                </div>
-
-                <div id="box">
-                  <img id="objPos" src="humidite.png"><br>
-                  <h4 class="my-0 font-weight-normal">Humidité</h4>
-                </div>
-              </div>
-            </div>
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm offset-sm-1">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Luminosité</h4>
           </div>
-
-          <br><br>
-
-          <!-- carte 2 -->
-          <div class="card mb-4 shadow-sm offset-sm-1">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Hier</h4>
-            </div>
-            <div class="card-body"><div id="grid">
-
-              <div id="box">
-                <img id="objPos" src="luminosite.png"><br>
-                <h4 class="my-0 font-weight-normal">Luminosité</h4>
-                <p class="font-weight-normal">13 lux</p>
-              </div>
-
-              <div id="box">
-                <img id="objPos" src="temperature.png"><br>
-                <h4 class="my-0 font-weight-normal">Température</h4>
-              </div>
-
-              <div id="box">
-                <img id="objPos" src="humidite.png"><br>
-                <h4 class="my-0 font-weight-normal">Humidité</h4>
-              </div>
-            </div>
-
-            </div>
+          <div class="card-body">
+            <img id="image" src="picture/luminosite.png">
+            <h2 id="0d-forecast-main" class="card-title">
+              12 Lux
+            </h2>
           </div>
-
-          <br><br>
-
-          <!-- carte 3 -->
-          <div class="card mb-4 shadow-sm offset-sm-1">
-            <div class="card-header">
-              <h4 class="my-0 font-weight-normal">Avant-Hier</h4>
-            </div>
-            <div class="card-body">
-              <div id="grid">
-
-                <div id="box">
-                  <img id="objPos" src="luminosite.png"><br>
-                  <h4 class="my-0 font-weight-normal">Luminosité</h4>
-                  <p class="font-weight-normal">13 lux</p>
-                </div>
-
-                <div id="box">
-                  <img id="objPos" src="temperature.png"><br>
-                  <h4 class="my-0 font-weight-normal">Température</h4>
-                </div>
-
-                <div id="box">
-                  <img id="objPos" src="humidite.png"><br>
-                  <h4 class="my-0 font-weight-normal">Humidité</h4>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="card mb-4 shadow-sm offset-sm-1">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Température</h4>
           </div>
-          
+          <div class="card-body">
+            <h2 id="1d-forecast-main" class="card-title">
+              40 °C
+            </h2>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm offset-sm-1">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Humidité</h4>
+          </div>
+          <div class="card-body">
+            <h2 id="2d-forecast-main" class="card-title">
+              63 %
+            </h2>
+          </div>
         </div>
       </div>
+    </div>
+
+    <footer>
+      <div class="bouton">
+        <button id="city-input-button" class="btn btn-success" type="submit" onclick="window.location.reload();">Actualiser</button>
+      </div>
+    </footer>
   </body>
 </html>
