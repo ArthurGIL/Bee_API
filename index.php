@@ -114,7 +114,7 @@
           <div class="card-body">
             <img id="image" src="picture/humidite.png">
             <h2 id="2d-forecast-main" class="card-title">
-              <?php $humidite_now ?> °C %
+              <?php $humidite_now ?> %
             </h2>
           </div>
         </div>
