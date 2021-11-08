@@ -63,8 +63,16 @@
             <div class="col-10"><img class="beeAPI" src="picture/logo.png"></div>
             <div class="col-auto">
               <div class="section">
-                <img id="image" class="section" src="picture/soleil.png"><br>
-                <h4 class="font-weight-normal">Jour</h4>
+                <?php
+                  if($luminosite_now >= 5) {
+                    <img id="image" class="section" src="picture/soleil.png"><br>
+                    <h4 class="font-weight-normal">Jour</h4>
+                  }
+                  else {
+                    <img id="image" class="section" src="picture/moon.png"><br>
+                    <h4 class="font-weight-normal">Nuit</h4>
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -84,7 +92,7 @@
           <div class="card-body">
             <img id="image" src="picture/luminosite.png">
             <h2 id="0d-forecast-main" class="card-title">
-              12 Lux
+              <?php $luminosite_now ?> Lux
             </h2>
           </div>
         </div>
@@ -95,7 +103,7 @@
           <div class="card-body">
             <img id="image" src="picture/temperature.png">
             <h2 id="1d-forecast-main" class="card-title">
-              40 °C
+              <?php $temperature_now ?> °C
             </h2>
           </div>
         </div>
@@ -106,7 +114,7 @@
           <div class="card-body">
             <img id="image" src="picture/humidite.png">
             <h2 id="2d-forecast-main" class="card-title">
-              63 %
+              <?php $humidite_now ?> °C %
             </h2>
           </div>
         </div>
