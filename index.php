@@ -28,7 +28,6 @@
   </head>
 
   <body>
-    <!--
     <?php
       // varibales
       $luminosite_now = "???";
@@ -56,7 +55,6 @@
       // echo "humidite_now = ".$humidite_now."<br>";
       // echo "temperature_now = ".$temperature_now;
     ?>
-    -->
 
     <header>
       <div class="container section">
