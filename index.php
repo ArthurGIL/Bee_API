@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css"/>
 
     <link rel="stylesheet" href="css/reset.css"/>
-		<link rel="stylesheet" media="screen" href="css/global.css"/>
+    <link rel="stylesheet" media="screen" href="css/global.css"/>
 
     <!-- bootstrap -->
     <link
@@ -51,13 +51,20 @@
       // fermer connection
       $con->close();
 
-      // echo "luminosite_now = ".$luminosite_now."<br>";
-      // echo "humidite_now = ".$humidite_now."<br>";
-      // echo "temperature_now = ".$temperature_now;
+      //echo "luminosite_now = ".$luminosite_now."<br>";
+      //echo "humidite_now = ".$humidite_now."<br>";
+      //echo "temperature_now = ".$temperature_now;
     ?>
 
     <header>
-      <div class="container section">
+      <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">Pierre-Erwan Fouillard  -  Arthur Gil  -  Stanislas Duval  -  Callixte Fusier</div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
         <div class="wrapper">
           <div class="row justify-content-center">
             <div class="col-10"><img class="beeAPI" src="picture/logo.png"></div>
@@ -65,12 +72,12 @@
               <div class="section">
                 <?php
                   if($luminosite_now >= 5) {
-                    <img id="image" class="section" src="picture/soleil.png"><br>
-                    <h4 class="font-weight-normal">Jour</h4>
+                    echo "<img id=\"image\" class=\"section\" src=\"picture/soleil.png\"><br>
+                    <h4 class=\"font-weight-normal\">Jour</h4>";
                   }
                   else {
-                    <img id="image" class="section" src="picture/moon.png"><br>
-                    <h4 class="font-weight-normal">Nuit</h4>
+                    echo "<img id=\"image\" class=\"section\" src=\"picture/moon.png\"><br>
+                    <h4 class=\"font-weight-normal\">Nuit</h4>";
                   }
                 ?>
               </div>
@@ -92,7 +99,7 @@
           <div class="card-body">
             <img id="image" src="picture/luminosite.png">
             <h2 id="0d-forecast-main" class="card-title">
-              <?php $luminosite_now ?> Lux
+              <?php echo $luminosite_now; ?> Lux
             </h2>
           </div>
         </div>
@@ -103,7 +110,7 @@
           <div class="card-body">
             <img id="image" src="picture/temperature.png">
             <h2 id="1d-forecast-main" class="card-title">
-              <?php $temperature_now ?> °C
+              <?php echo $temperature_now; ?> °C
             </h2>
           </div>
         </div>
@@ -114,7 +121,7 @@
           <div class="card-body">
             <img id="image" src="picture/humidite.png">
             <h2 id="2d-forecast-main" class="card-title">
-              <?php $humidite_now ?> %
+              <?php echo $humidite_now; ?> %
             </h2>
           </div>
         </div>
